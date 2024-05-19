@@ -34,6 +34,7 @@ function deleteItem(index){
     items.splice(index, 1);
     setItensBD();
     loadItens();
+    getTotals();
 
 }
 
@@ -92,8 +93,10 @@ function loadItens (){
 const getItensBD = () => JSON.parse(localStorage.getItem("db_items")) ?? [];
 const setItensBD = () => localStorage.setItem("db_items", JSON.stringify(items));
 
-
-
+window.onload = () => {
+    loadItens();
+    getTotals();
+}
 
 
 
